@@ -16,7 +16,7 @@ showQuoteButton.addEventListener("click", async () => {
   try {
     // Send a GET request to the backend server
     const response = await fetch(
-      "https://sheidashab-quoteserver.hosting.codeyourfuture.io"
+      "https://sheidashab-quoteserver-backend.hosting.codeyourfuture.io/"
     );
 
     // Read the response body as plain text
@@ -37,11 +37,14 @@ quoteInsertForm.addEventListener("submit", async (event) => {
 
   const data = { quote: quote, author: author };
 
-  const response = await fetch("https://sheidashab-quoteserver.hosting.codeyourfuture.io", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
+  const response = await fetch(
+    "https://sheidashab-quoteserver-backend.hosting.codeyourfuture.io/",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    }
+  );
 
   const result = await response.text();
   console.log(result);
